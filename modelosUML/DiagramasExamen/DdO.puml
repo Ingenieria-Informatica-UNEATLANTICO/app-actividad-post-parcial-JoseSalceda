@@ -1,0 +1,63 @@
+@startuml
+object "Flota: TUS" as flota
+
+object "Bus: 24c1" as bus {
+    ID = 3
+    Modelo = 5d3cc
+    Color = Azul
+}
+
+object "Incidencia: incidencia" as incidencia {
+    Tipo = atropellamiento
+    Duracion = 3 horas
+    Severidad = grave
+}
+
+object "Ruta: a" as ruta {
+    ID = b3c1
+    Duracion = 8 horas
+}
+
+object "Parada: parada" as parada {
+    Numero = 10
+    Ubicacion = UNEAT
+}
+
+object "Horario: mañana" as horario {
+    Inicio = 8am
+    Final = 2pm
+}
+
+object "Conductor: conductor" as conductor {
+    ID = 88cz6
+    Nombre = Javi
+}
+
+object "Persona: persona" as persona
+
+object "Pasajero: pasajero" as pasajero {
+    Nombre = Alfredo
+    Saldo = 1.79€
+}
+
+object "Tarifa: tarifa" as tarifa {
+    Precio = 1.80€
+    Metodo_pago = Saldo
+}
+
+flota --> bus : tiene
+bus --> incidencia : tiene
+bus --> ruta : tiene
+bus --> conductor : conducido_por
+bus --> tarifa : tiene
+ruta --> parada : tiene
+ruta --> horario : tiene
+incidencia --> horario : afecta
+persona --> conductor : es_un
+persona --> pasajero : tiene
+pasajero --> tarifa : paga
+conductor --> horario : tiene
+pasajero --> parada : "suben y bajan"
+ruta --> incidencia : sufre
+
+@enduml

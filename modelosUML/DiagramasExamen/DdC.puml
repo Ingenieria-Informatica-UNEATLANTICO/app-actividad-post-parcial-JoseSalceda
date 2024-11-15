@@ -1,0 +1,64 @@
+@startuml
+class Flota {
+}
+
+class Bus {
+    ID
+    Modelo
+    Color
+}
+
+class Incidencia {
+    Tipo
+    Duracion
+    Severidad
+}
+
+class Ruta {
+    ID
+    Duracion
+}
+
+class Parada {
+    Numero
+    Ubicacion
+}
+
+class Horario {
+    Inicio
+    Final
+}
+
+class Conductor {
+    ID
+    Nombre
+}
+
+class Persona {
+}
+
+class Pasajero {
+    Nombre
+    Saldo
+}
+
+class Tarifa {
+    Precio
+    Metodo_pago
+}
+
+Flota --> Bus : tiene
+Bus --> Incidencia : tiene
+Bus --> Ruta : tiene
+Bus --> Conductor : conducido_por
+Bus --> Tarifa : tiene
+Ruta --> Parada : tiene
+Ruta --> Horario : tiene
+Incidencia --> Horario : afecta
+Persona --> Conductor : es_un
+Persona --> Pasajero : tiene
+Pasajero --> Tarifa : paga
+Conductor --> Horario : tiene
+Pasajero --> Parada : "suben y bajan"
+Ruta --> Incidencia : sufre
+@enduml
