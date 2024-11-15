@@ -1,0 +1,19 @@
+@startuml
+state "Bus" as bus
+state "Inicia jornada" as inicia_jornada
+state "Ruta" as ruta {
+    state "Inicia ruta" as inicia_ruta
+    state "Siguiente parada" as siguiente_parada
+    state "Finaliza ruta" as finaliza_ruta
+    inicia_ruta --> siguiente_parada
+    siguiente_parada --> finaliza_ruta
+    finaliza_ruta --> inicia_ruta : Descanso
+}
+state "Finaliza jornada" as finaliza_jornada
+
+[*] --> bus
+bus --> inicia_jornada
+inicia_jornada --> ruta
+ruta --> finaliza_jornada
+finaliza_jornada --> [*]
+@enduml
