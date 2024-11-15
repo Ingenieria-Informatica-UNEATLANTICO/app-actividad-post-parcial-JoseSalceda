@@ -5,4 +5,4 @@
 
  ### [DdC] (https://github.com/Ingenieria-Informatica-UNEATLANTICO/app-actividad-post-parcial-JoseSalceda/blob/main/modelosUML/DiagramasExamen/DdC.puml) 
  
- ![DdC](images/DiagramasExamen/DdC.svg1)
+ ![DdC](images/DiagramasExamen/DdC.svg)
