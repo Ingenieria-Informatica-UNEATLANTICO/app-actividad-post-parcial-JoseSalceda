@@ -1,2 +1,2 @@
 ## Enlace al documento del examen original
- [Documento del examen](URL-HERE)
+ [Documento del examen original](https://github.com/Ingenieria-Informatica-UNEATLANTICO/app-actividad-post-parcial-JoseSalceda/blob/main/documents/parcial-joseSalceda.pdf)
