@@ -1,0 +1,19 @@
+@startuml
+[*] --> Bus
+Bus --> Inicia_jornada
+Inicia_jornada --> Ruta
+
+state Ruta {
+    [*] --> Inicia_ruta
+    Inicia_ruta --> Siguiente_parada
+    Siguiente_parada --> Finaliza_ruta
+    Finaliza_ruta --> Descanso
+    Finaliza_ruta --> [*]
+    Descanso --> Inicia_ruta
+    Descanso --> En_mantenimiento : Incidencia
+    En_mantenimiento --> Descanso : Resuelto
+}
+
+Ruta --> Finaliza_jornada
+Finaliza_jornada --> [*]
+@enduml

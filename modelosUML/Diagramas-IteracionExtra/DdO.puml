@@ -1,0 +1,58 @@
+@startuml
+class "Flota: TUS"
+    class "Bus: 24c1" {
+        ID = 3
+        Modelo = 5d3cc
+        Color = Azul
+    }
+    class "Incidencia: incidencia" {
+        Tipo = atropellamiento
+        Duracion = 3 horas
+        Severidad = grave
+    }
+    class "Ruta: a" {
+        ID = b3c1
+        Duracion = 8 horas
+    }
+    class "Parada: parada" {
+        Numero = 10
+        Ubicacion = UNEAT
+    }
+    class "Horario: mañana" {
+        Inicio = 8am
+        Final = 2pm
+    }
+    class "Conductor: conductor" {
+        ID = 88cz6
+        Nombre = Javi
+    }
+    class "Persona: persona"
+    class "Pasajero: pasajero" {
+        Nombre = Alfredo
+        Saldo = 1.79€
+    }
+    class "Tarifa: tarifa" {
+        Precio = 1.80€
+        Metodo_pago = Saldo
+    }
+    class "Mantenimiento: revision1" {
+        ID = M24c1
+        Tipo = Preventivo
+    }
+
+    "Flota: TUS" --> "Bus: 24c1" : tiene
+    "Bus: 24c1" --> "Incidencia: incidencia" : tiene
+    "Bus: 24c1" --> "Ruta: a" : tiene
+    "Bus: 24c1" --> "Conductor: conductor" : conducido_por
+    "Bus: 24c1" --> "Tarifa: tarifa" : tiene
+    "Bus: 24c1" --> "Mantenimiento: revision1" : requiere
+    "Ruta: a" --> "Parada: parada" : tiene
+    "Ruta: a" --> "Horario: mañana" : tiene
+    "Incidencia: incidencia" --> "Horario: mañana" : afecta
+    "Persona: persona" --> "Conductor: conductor"
+    "Persona: persona" --> "Pasajero: pasajero"
+    "Pasajero: pasajero" --> "Tarifa: tarifa" : paga
+    "Conductor: conductor" --> "Horario: mañana" : tiene
+    "Pasajero: pasajero" --> "Parada: parada" : "suben y bajan"
+    "Ruta: a" --> "Incidencia: incidencia" : sufre
+@enduml
